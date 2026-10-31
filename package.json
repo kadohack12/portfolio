@@ -2,7 +2,7 @@
   "name": "kadohack12-portfolio",
   "version": "1.0.0",
   "type": "module",
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
@@ -88,5 +88,6 @@
     "overrides": {
       "tailwindcss>nanoid": "3.3.7"
     }
-  }
+  },
+  "description": "Portfolio de Kadohack12 — cybersécurité, IA locale et automatisation."
 }
