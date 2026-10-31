@@ -1,0 +1,43 @@
+# Kadohack12 — Portfolio
+
+> Portfolio de Kadmiel Trésor Ligan (alias Kadohack12) : cybersécurité,
+> IA agentique et automatisation. Analyse de sécurité, scripts réseau,
+> agents autonomes et durcissement système.
+
+## Identite
+
+- Nom : Kadmiel Trésor Ligan
+- Alias : Kadohack12
+- Role : Analyste sécurité & développeur IA agentique
+- Localisation : Porto-Novo, Bénin
+- GitHub : https://github.com/kadohack12
+- TryHackMe : https://tryhackme.com/p/kadohack12 (TOP 4%, 83 salles)
+
+## Domaines
+
+- Analyse de sécurité et triage d'alertes (profil orienté SOC)
+- Recherche offensive et laboratoires CTF (HTB, TryHackMe, Root-Me)
+- IA agentique appliquée et IA locale
+- Automatisation de workflows et scripts réseau
+- Durcissement système Windows et Linux
+
+## Stack
+
+Python, Go, Bash, Linux, réseau (ICMP, Wireshark), n8n, Ollama,
+Gemini API, ADK, MCP.
+
+## Projets
+
+- Agentic Cinema : orchestration d'agents autonomes multi-etapes
+- ICMP Ghost Tunnel : steganographie reseau sur paquets ICMP
+- Signal Dispatch : pipeline de veille RSS vers canaux de diffusion
+- AdversarySim-AI : emulation d'adversaire assistee par LLM locaux
+- Lockstate : audit de securite local en binaire unique (Go)
+- CheckSafe : detection d'arnaques numeriques pour le grand public
+- LootZero Engine : veille et diffusion automatisee multi-canal
+- System Hardening Hub : scripts de durcissement Windows et Linux
+
+## Licence
+
+Code et contenu sous licence proprietaire, tous droits reserves.
+Voir https://kadohack12.pages.dev/ et le fichier LICENSE du depot.

@@ -1,0 +1,43 @@
+# Portfolio de Kadohack12 — https://kadohack12.pages.dev
+# Tous les robots sont autorises, y compris les agents IA.
+
+User-agent: *
+Allow: /
+
+# Robots des moteurs de recherche classiques
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+# Agents IA / reponses generees
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# Pas de contenu prive sur ce site
+Sitemap: https://kadohack12.pages.dev/sitemap.xml
