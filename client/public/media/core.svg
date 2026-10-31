@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08131a"/><stop offset="1" stop-color="#0b1a22"/></linearGradient>
+    <radialGradient id="c" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#d98d4c" stop-opacity=".26"/><stop offset="1" stop-color="#d98d4c" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg2)"/><rect width="1200" height="800" fill="url(#c)"/>
+  <g fill="none" stroke="#4ff6d7" transform="translate(600 400)">
+    <circle r="90" stroke-opacity=".55"/><circle r="150" stroke-opacity=".34"/><circle r="215" stroke-opacity=".2"/>
+    <circle r="285" stroke-opacity=".12"/><circle r="360" stroke-opacity=".07"/>
+  </g>
+  <g fill="none" stroke="#4ff6d7" stroke-opacity=".45" transform="translate(600 400)">
+    <path d="M-90 0h180M0-90v180"/><rect x="-30" y="-30" width="60" height="60" stroke-opacity=".8"/>
+  </g>
+  <g stroke="#d98d4c" stroke-opacity=".42" stroke-width="1.6" fill="none" transform="translate(600 400)">
+    <path d="M-150 0a150 150 0 0 1 150-150"/><path d="M150 0a150 150 0 0 1-150 150"/>
+  </g>
+  <g fill="#4ff6d7" transform="translate(600 400)">
+    <circle cx="0" cy="-215" r="5"/><circle cx="215" cy="0" r="4.4" fill-opacity=".8"/>
+    <circle cx="0" cy="285" r="4.4" fill-opacity=".7"/><circle cx="-285" cy="0" r="4" fill-opacity=".6"/>
+    <circle cx="152" cy="-152" r="4" fill-opacity=".65"/><circle cx="-152" cy="152" r="4" fill-opacity=".55"/>
+  </g>
+  <g fill="#d98d4c" transform="translate(600 400)"><circle r="7"/></g>
+  <g stroke="#4ff6d7" stroke-opacity=".16"><path d="M0 400h1200M600 0v800"/></g>
+</svg>

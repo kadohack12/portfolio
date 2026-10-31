@@ -17,24 +17,20 @@ import {
   Menu,
   Network,
   Radar,
-  ScanLine,
   ShieldCheck,
   Sparkles,
   SquareTerminal,
   X,
   Zap,
-  Volume2,
-  VolumeX,
   MousePointer2,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
-const HERO_IMAGE = "/manus-storage/kadohero-circuit-lumen_2fdca9d5.jpg";
-const SIGNAL_IMAGE = "/manus-storage/kado-signal-field_e8310610.jpg";
-const CORE_IMAGE = "/manus-storage/kado-data-core_6b4d349e.jpg";
-const LOGO_MARK = "/manus-storage/kado-logo-mark_443f1c98.png";
-const AMBIENT_AUDIO = "/manus-storage/kadohack12-circuit-lumen-ambient_6c9c9bb1.mp3";
+const HERO_IMAGE = "/media/hero.svg";
+const SIGNAL_IMAGE = "/media/signal.svg";
+const CORE_IMAGE = "/media/core.svg";
+const LOGO_MARK = "/media/mark.svg";
 
 const navItems = [
   { label: "Profil", target: "profil" },
@@ -52,11 +48,13 @@ const projects = [
     description:
       "Architecture d’agents autonomes multi-étapes pensée pour transformer un objectif complexe en une séquence d’actions cohérente, observable et connectée.",
     detail: "Gemini API · ADK · MCP · orchestration",
-    dossier: "Concevoir des agents capables de fragmenter une intention complexe, de choisir leurs outils et de faire remonter les résultats dans une chaîne lisible. Le cœur du travail : l’orchestration, la traçabilité et les connexions permises par MCP.",
+    dossier:
+      "Concevoir des agents capables de fragmenter une intention complexe, de choisir leurs outils et de faire remonter les résultats dans une chaîne lisible. Le cœur du travail : l’orchestration, la traçabilité et les connexions permises par MCP.",
     tags: ["Gemini API", "ADK", "MCP"],
     icon: BrainCircuit,
     visual: "visual-signal",
     image: SIGNAL_IMAGE,
+    link: null,
   },
   {
     code: "SEC-02",
@@ -65,11 +63,13 @@ const projects = [
     description:
       "Expérimentation de stéganographie réseau autour des paquets ICMP, utilisée comme support d’analyse des canaux de communication, de la détection et du durcissement.",
     detail: "Python · ICMP · Wireshark · analyse réseau",
-    dossier: "Explorer la frontière entre les paquets de contrôle et les canaux de communication discrets afin de mieux analyser les flux, les scénarios de détection et le comportement réseau sous Linux.",
+    dossier:
+      "Explorer la frontière entre les paquets de contrôle et les canaux de communication discrets afin de mieux analyser les flux, les scénarios de détection et le comportement réseau sous Linux.",
     tags: ["Python", "ICMP", "Wireshark"],
     icon: Network,
     visual: "visual-core",
     image: CORE_IMAGE,
+    link: null,
   },
   {
     code: "OPS-03",
@@ -78,11 +78,88 @@ const projects = [
     description:
       "Pipeline de veille qui relie des sources RSS, des automatisations et des agents locaux pour transformer un flux d’information en signal exploitable.",
     detail: "n8n · RSS · Telegram · Ollama / CrewAI",
-    dossier: "Transformer la veille en un système actif : capter, filtrer, synthétiser et diffuser une information pertinente vers les bons canaux au lieu de laisser le signal se perdre dans le bruit.",
+    dossier:
+      "Transformer la veille en un système actif : capter, filtrer, synthétiser et diffuser une information pertinente vers les bons canaux au lieu de laisser le signal se perdre dans le bruit.",
     tags: ["n8n", "RSS", "Agents locaux"],
     icon: Radar,
     visual: "visual-grid",
     image: null,
+    link: null,
+  },
+  {
+    code: "SEC-04",
+    eyebrow: "Sécurité offensive · Sliver C2 · LLM locaux",
+    title: "AdversarySim-AI",
+    description:
+      "Assistant IA orienté purple teaming et émulation d’adversaire. Il relie un cadre de commande Sliver C2 à des modèles locaux pour entraîner la détection sans sortir du périmètre autorisé.",
+    detail: "Python · Ollama · Sliver C2",
+    dossier:
+      "Un projet de recherche défensive : simuler un adversaire pour mieux comprendre ce qu’il laisse comme traces. Le travail porte sur la sécurité par conception, la journalisation des actions et l’exécution strictement locale des modèles, afin qu’aucune donnée ne quitte la machine.",
+    tags: ["Python", "Sliver C2", "Ollama"],
+    icon: BrainCircuit,
+    visual: "visual-signal",
+    image: SIGNAL_IMAGE,
+    link: "https://github.com/kadohack12/AdversarySim-AI",
+  },
+  {
+    code: "SEC-05",
+    eyebrow: "Audit de sécurité · Go · Zéro dépendance",
+    title: "Lockstate",
+    description:
+      "Outil d’audit de sécurité local livré en un seul binaire. Aucune dépendance à l’exécution, aucun envoi de données : l’analyse reste entièrement sur la machine auditée.",
+    detail: "Go · binaire unique · offline",
+    dossier:
+      "Les outils d’audit existants sont souvent trop lourds à déployer ou trop dépendants de leur environnement. Lockstate prend le problème à l’envers : un binaire autonome, qui s’exécute hors ligne et produit un rapport lisible sans rien transmettre.",
+    tags: ["Go", "Offline", "Zéro dépendance"],
+    icon: ShieldCheck,
+    visual: "visual-core",
+    image: CORE_IMAGE,
+    link: "https://github.com/kadohack12/Lockstate",
+  },
+  {
+    code: "SEC-06",
+    eyebrow: "Détection d’arnaques · SafeSpace Hacks",
+    title: "CheckSafe",
+    description:
+      "Détecteur d’arnaques numériques pensé pour le grand public. L’objectif : aider quelqu’un qui n’a aucune connaissance technique à décider si un message est fiable.",
+    detail: "JavaScript · React · Vercel",
+    dossier:
+      "Une interface calme pour une décision stressante. L’utilisateur colle un message suspect et reçoit une lecture claire des signaux d’alerte, sans jargon ni verdict alarmiste. Construit pour SafeSpace Hacks.",
+    tags: ["JavaScript", "React", "Grand public"],
+    icon: Radar,
+    visual: "visual-grid",
+    image: null,
+    link: "https://check-safe-beryl.vercel.app",
+  },
+  {
+    code: "OPS-07",
+    eyebrow: "Automatisation · Bots multi-canal",
+    title: "LootZero Engine",
+    description:
+      "Moteur autonome qui traque les jeux payants devenus gratuits à durée illimitée, puis diffuse l’information sur Discord, Telegram et Facebook sans intervention manuelle.",
+    detail: "Python · GitHub Actions · Multi-canal",
+    dossier:
+      "La plupart des plateformes de bons plans mélangent gratuit et free-to-play, ce qui noie le signal utile. LootZero filtre ce bruit à la source et ne retient que les jeux réellement conservables, avec une diffusion automatisée sur plusieurs canaux.",
+    tags: ["Python", "Automation", "Bots"],
+    icon: SquareTerminal,
+    visual: "visual-signal",
+    image: SIGNAL_IMAGE,
+    link: "https://github.com/kadohack12/lootzero-engine",
+  },
+  {
+    code: "OPS-08",
+    eyebrow: "Durcissement · Windows & Linux",
+    title: "System Hardening Hub",
+    description:
+      "Ensemble de scripts, politiques et configurations de durcissement réunis par système d’exploitation, pour appliquer des bases de sécurité solides sans repartir de zéro.",
+    detail: "Shell · Windows · Linux",
+    dossier:
+      "Un dépôt de référence plutôt qu’un outil unique : les réglages de durcissement sont classés par système et documentés, pour être repris, adaptés et vérifiés facilement selon l’environnement cible.",
+    tags: ["Shell", "Windows", "Linux"],
+    icon: Cpu,
+    visual: "visual-grid",
+    image: null,
+    link: "https://github.com/kadohack12/system-hardening-hub",
   },
 ];
 
@@ -95,19 +172,19 @@ const competencyGroups = [
   },
   {
     number: "02",
-    title: "Agentic Intelligence",
+    title: "IA locale & agents",
     icon: Bot,
-    items: ["Gemini API & Vertex AI", "ADK & Model Context Protocol", "Ollama · Qwen · DeepSeek", "Workflows multi-agents"],
+    items: ["LLM locaux via Ollama", "Agents autonomes outillés", "Émulation d’adversaire assistée", "Automatisation de l’analyse"],
   },
   {
     number: "03",
-    title: "Automation Systems",
+    title: "Automatisation",
     icon: SquareTerminal,
-    items: ["Python & Bash", "n8n et intégrations API", "Bots et canaux Telegram", "Veille technique structurée"],
+    items: ["Python & Bash", "GitHub Actions & CI", "Bots Discord / Telegram", "Veille technique structurée"],
   },
   {
     number: "04",
-    title: "Low-Level Logic",
+    title: "Bases matérielles",
     icon: Cpu,
     items: ["Arduino & électronique", "Grafcet / automatismes", "Logique F3 / STI", "Systèmes séquentiels"],
   },
@@ -133,12 +210,10 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const [audioPlaying, setAudioPlaying] = useState(false);
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[number] | null>(null);
   const [introVisible, setIntroVisible] = useState(true);
   const [cursorActive, setCursorActive] = useState(false);
   const [showAllBadges, setShowAllBadges] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -203,25 +278,6 @@ export default function Home() {
     }
   };
 
-  const toggleAmbient = async () => {
-    const player = audioRef.current;
-    if (!player) return;
-    if (audioPlaying) {
-      player.pause();
-      setAudioPlaying(false);
-      toast.message("Ambiance en pause.");
-      return;
-    }
-    try {
-      player.volume = 0.18;
-      await player.play();
-      setAudioPlaying(true);
-      toast.success("Ambiance activée à faible volume.");
-    } catch {
-      toast.error("Le navigateur a bloqué la lecture. Réessaie avec ce contrôle.");
-    }
-  };
-
   const trackPointer = (event: React.PointerEvent<HTMLElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
     event.currentTarget.style.setProperty("--pointer-x", `${event.clientX - rect.left}px`);
@@ -231,7 +287,6 @@ export default function Home() {
   return (
     <div className="lumen-site">
       <div ref={cursorRef} className={`precision-cursor ${cursorActive ? "is-active" : ""}`} aria-hidden="true"><i /><span>{cursorActive ? "OPEN" : "SCAN"}</span></div>
-      <audio ref={audioRef} src={AMBIENT_AUDIO} loop preload="metadata" />
       <div className="visit-progress" style={{ transform: `scaleX(${scrollProgress / 100})` }} aria-hidden="true" />
       <div className="aurora-lattice" aria-hidden="true"><i /><i /><i /></div>
       <div className="ambient-orb ambient-orb-one" aria-hidden="true" />
@@ -295,10 +350,6 @@ export default function Home() {
             <span className="status-hover">OUVRIR LE DOSSIER <ArrowUpRight size={12} /></span>
           </motion.button>
           <a className="scroll-cue" href="#profil" onClick={() => scrollToSection("profil")}><span>SCROLL TO EXPLORE</span><i /></a>
-          <button className={`audio-control ${audioPlaying ? "is-playing" : ""}`} onClick={toggleAmbient} aria-label={audioPlaying ? "Mettre l’ambiance sonore en pause" : "Activer l’ambiance sonore"}>
-            <span className="audio-wave" aria-hidden="true"><i /><i /><i /><i /></span>
-            {audioPlaying ? <Volume2 size={15} /> : <VolumeX size={15} />}<span>AUDIO / {audioPlaying ? "ON" : "OFF"}</span>
-          </button>
           <div className="hero-pointer-note"><MousePointer2 size={14} /> SURVOLEZ LE SIGNAL</div>
         </section>
 
@@ -319,8 +370,8 @@ export default function Home() {
           </motion.div>
           <motion.div className="profile-specs" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={riseIn}>
             <div><span>LABORATOIRES</span><strong>HTB · THM · Root-Me</strong></div>
-            <div><span>STACK PRINCIPALE</span><strong>Python · Bash · MCP</strong></div>
-            <div><span>FOCUS ACTUEL</span><strong>AI agents & offensive research</strong></div>
+            <div><span>STACK PRINCIPALE</span><strong>Python · Go · Bash</strong></div>
+            <div><span>FOCUS ACTUEL</span><strong>IA locale & recherche offensive</strong></div>
           </motion.div>
         </section>
 
@@ -332,7 +383,7 @@ export default function Home() {
             <p>Un profil junior orienté triage et investigation, construit par la pratique des labs, l’analyse des signaux et l’automatisation des tâches répétitives.</p>
             <div className="soc-actions">
               <a className="soc-profile-link" href="https://tryhackme.com/p/kadohack12" target="_blank" rel="noreferrer">Ouvrir le profil TryHackMe <ArrowUpRight size={16} /></a>
-              <a className="soc-cv-download" href="/manus-storage/pasted_file_x98ZPQ_CVAnalysteSOC-TresorKadmielLiganJR_a6b61d1d.pdf" download="CV-Analyste-SOC-Tresor-Kadmiel-Ligan-JR.pdf">Télécharger le CV PDF <ArrowDownRight size={16} /></a>
+              
             </div>
           </motion.div>
           <motion.div className="soc-dashboard" initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={riseIn}>
@@ -408,7 +459,7 @@ export default function Home() {
             })}
           </div>
           <div className="tool-belt" aria-label="Technologies utilisées">
-            <span><DatabaseZap size={16} /> Gemini</span><span>MCP</span><span>Ollama</span><span>Python</span><span>Linux</span><span>Wireshark</span><span>n8n</span><span>Arduino</span>
+            <span><DatabaseZap size={16} /> Python</span><span>Go</span><span>Shell</span><span>JavaScript</span><span>Linux</span><span>Ollama</span><span>Sliver C2</span><span>Wireshark</span><span>GitHub Actions</span>
           </div>
         </section>
 
@@ -460,6 +511,7 @@ export default function Home() {
               <p className="modal-lead">{selectedProject.dossier}</p>
               <div className="modal-meta"><span><LockKeyhole size={14} /> RESEARCH LOG</span><span><Layers3 size={14} /> {selectedProject.detail}</span></div>
               <div className="modal-tags">{selectedProject.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+              {selectedProject.link && <a className="modal-link" href={selectedProject.link} target="_blank" rel="noreferrer">Ouvrir le projet <ArrowUpRight size={16} /></a>}
               <button className="modal-next" onClick={() => { setSelectedProject(null); scrollToSection("stack"); }}>Voir les outils mobilisés <ArrowDownRight size={17} /></button>
             </motion.section>
           </motion.div>
